@@ -1,6 +1,7 @@
 import './App.css';
 import { useState } from 'react';
 import AddTaskModal from './components/AddTaskModal';
+import EditTaskModal from './components/EditTaskModal';
 import Main from './views/Main';
 import TaskByID from './views/TaskByID';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -21,7 +22,7 @@ const App = () => {
         <div>
           <Header></Header>
         </div>
-        <AddTaskModal show={showModal} modalToggler={modalToggler}></AddTaskModal>
+        <EditTaskModal show={showModal} modalToggler={modalToggler} />
         <div className="gradient text-white min-h-screen flex items-center">
           <Switch>
             <Route path="/tasks/:taskID">
