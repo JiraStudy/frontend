@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TextInput = ({name}) => {
+const TextInput = ({ name, register, errors }) => {
   return (
     <div class="flex flex-row mb-4 justify-center items-center">
       <label class="block text-gray-700 text-sm font-normal mr-2" for={name}>
@@ -11,10 +11,11 @@ const TextInput = ({name}) => {
         name={name}
         v-model="form.email"
         type="text"
-        required
         autofocus
         placeholder={name}
+        ref={register}
       />
+      {errors[name] && <span>This field is required</span>}
     </div>
   );
 };
