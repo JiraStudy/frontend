@@ -3,7 +3,7 @@ import React from 'react';
 const TextInput = ({ name, register, errors }) => {
   return (
     <div class="flex flex-row mb-4 justify-center items-center">
-      <label class="block text-gray-700 text-sm font-normal mr-2" for={name}>
+      <label class="block text-gray-700 text-sm font-normal mr-2 capitalize" for={name}>
         {name}
       </label>
       <input

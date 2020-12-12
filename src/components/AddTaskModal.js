@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form';
 
 import TextInput from './TextInput';
 import Datepicker from './Datepicker';
+import Select from './Select';
 
 const AddTaskModal = ({ show, addTaskHandler, modalToggler, ...props }) => {
   const { register, handleSubmit, errors, control } = useForm();
@@ -33,15 +34,20 @@ const AddTaskModal = ({ show, addTaskHandler, modalToggler, ...props }) => {
                   <div class="bg-white rounded px-12 pt-6 pb-8 mb-4">
                     <div class="flex items-center justify-center">
                       <div class="w-full max-w-md">
-                        <TextInput name="Titulo" register={register} errors={errors} />
-                        <TextInput name="Prioridad" register={register} errors={errors} />
+                        <TextInput name="title" register={register} errors={errors} />
+                        <Select name="difficulty" register={register} errors={errors} control={control}/>
                         <Datepicker
-                          name="Deadline"
+                          name="deadline"
                           register={register}
                           errors={errors}
                           control={control}
                         />
-                        <TextInput name="Tipo" register={register} errors={errors} />
+                        <Select
+                          name="type"
+                          register={register}
+                          errors={errors}
+                          control={control}
+                        ></Select>
                       </div>
                     </div>
                   </div>
