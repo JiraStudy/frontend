@@ -8,6 +8,8 @@ import {
     Switch,
     Route,
 } from "react-router-dom";
+import Header from './components/Header'
+
 import './App.css';
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -19,6 +21,9 @@ const App = () => {
   return (
       <Router>
           <div className="app-container">
+              <div>
+                  <Header></Header>
+              </div>
               <AddTaskModal show={showModal} modalToggler={modalToggler}></AddTaskModal>
               <div className="gradient text-white min-h-screen flex items-center">
                   <Switch>
