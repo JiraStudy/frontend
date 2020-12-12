@@ -6,6 +6,7 @@ import TaskByID from './views/TaskByID';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Header from './components/Header';
 import 'react-datepicker/dist/react-datepicker.css';
+import Footer from './components/Footer'
 
 import './App.css';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -54,6 +55,9 @@ const App = () => {
               <Main modalToggler={modalToggler} />
             </Route>
           </Switch>
+        </div>
+        <div>
+          <Footer></Footer>
         </div>
       </div>
     </Router>

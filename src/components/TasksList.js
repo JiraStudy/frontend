@@ -6,7 +6,6 @@ const TasksList = props => {
         'border-left': props.showLeftBorder ? '3px solid #44A9FB' : null,
         'border-right': props.showRightBorder ? '3px solid #44A9FB' : null,
     }
-    debugger
     return (
         <Droppable droppableId = {props.id}>
             {provided => (
