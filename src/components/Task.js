@@ -1,3 +1,7 @@
+import {
+    Link
+} from "react-router-dom";
+
 const Task = props => {
     return (
         <>
@@ -5,9 +9,9 @@ const Task = props => {
                 display: 'flex',
                 'justify-content': 'space-between'
             }}>
-                <a href={'#'}>
+                <Link to={`/${props.task.id}`}>
                     {props.task.title}
-                </a>
+                </Link>
                 <span>
                     {props.task.type}
                 </span>
