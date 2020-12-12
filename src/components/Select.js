@@ -1,4 +1,3 @@
-import React from 'react';
 import Select from 'react-select';
 import { Controller } from 'react-hook-form';
 
@@ -13,14 +12,13 @@ const InputSelect = ({ name, control, options }) => {
           name={name}
           control={control}
           render={({ onChange, onBlur, value }) => {
-            console.log(value);
             return (
               <Select
                 options={options}
-                onChange={onChange}
+                onChange={(option) => onChange(option.value)}
                 onBlur={onBlur}
-                selected={value.value}
-                defaultValue={value.value}
+                selected={options.filter((option) => option.value === value)}
+                value={options.filter((option) => option.value === value)}
               />
             );
           }}

@@ -20,7 +20,7 @@ const types = [
 
 const TaskForm = ({ task = {}, modalToggler, submitHandler, title }) => {
   const { register, handleSubmit, errors, control } = useForm({ defaultValues: task });
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => console.log(JSON.stringify(data));
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
