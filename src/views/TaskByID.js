@@ -1,6 +1,9 @@
 import AddButton from '../components/AddButton';
 import TasksList from '../components/TasksList';
 import { useState, useEffect } from 'react';
+import {
+  Link
+} from "react-router-dom";
 const mockedTasks = [
   {
     id: 'id',
@@ -12,14 +15,14 @@ const mockedTasks = [
   {
     id: 'id1',
     title: 'title1',
-    difficulty: 'Easy',
+    difficulty: '3',
     type: 'Exam',
     status: '2',
   },
   {
     id: 'id2',
     title: 'title2',
-    difficulty: 'Easy',
+    difficulty: '3',
     type: 'Exam',
     status: '3',
   },
@@ -48,13 +51,14 @@ const TaskByID = ({ modalToggler }) => {
       }}
     >
       <AddButton onClick={modalToggler} text="Create a Subtask" />
-      <span
+      <Link
+        to='/tasks'
         style={{
           'font-size': '25px',
         }}
       >
         {parentTaskTitle}
-      </span>
+      </Link>
       <div
         style={{
           display: 'flex',

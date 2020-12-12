@@ -17,7 +17,6 @@ const Task = props => {
             }}>
                 {props.task.subtasksCount &&
                     <Link to={`/tasks/${props.task.id}`} style={{
-                        'text-decoration': 'underline',
                         'font-size': '18px'
                     }}>
                         {props.task.title}
