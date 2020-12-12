@@ -9,7 +9,7 @@ const mockedTasks = [
     difficulty: '1',
     type: 'Exam',
     subtasksCount: 2,
-    status: '1',
+    status: 'TODO',
   },
 {
     id: 'id',
@@ -18,7 +18,7 @@ const mockedTasks = [
     difficulty: '2',
     type: 'Exam',
     subtasksCount: 2,
-    status: '2',
+    status: 'IN_PROGRESS',
 },
 {
     id: 'id',
@@ -27,7 +27,7 @@ const mockedTasks = [
     difficulty: '2',
     type: 'Exam',
     subtasksCount: 2,
-    status: '3',
+    status: 'DONE',
 },
 {
     id: 'id',
@@ -36,7 +36,7 @@ const mockedTasks = [
     difficulty: '2',
     type: 'Exam',
     subtasksCount: 2,
-    status: '1',
+    status: 'TODO',
 },
 ];
 
@@ -76,9 +76,9 @@ const Main = ({modalToggler}) => {
             width: '1500px',
           }}
         >
-          <TasksList title="To do" tasks={getTasksByStatus('1')} />
-          <TasksList title="In Progress" tasks={getTasksByStatus('2')} showLeftBorder showRightBorder />
-          <TasksList title="Done" tasks={getTasksByStatus('3')} />
+            <TasksList title="To do" tasks={getTasksByStatus('TODO')} />
+            <TasksList title="In Progress" tasks={getTasksByStatus('IN_PROGRESS')} showLeftBorder showRightBorder />
+            <TasksList title="Done" tasks={getTasksByStatus('DONE')} />
         </div>
       </div>
 )};
