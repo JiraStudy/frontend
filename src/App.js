@@ -3,6 +3,7 @@ import AddButton from './components/AddButton';
 import TasksList from "./components/TasksList";
 import { useState } from 'react';
 import AddTaskModal from './components/AddTaskModal';
+import Header from './components/Header'
 
 import './App.css';
 import "react-datepicker/dist/react-datepicker.css";
@@ -24,6 +25,9 @@ const App = () => {
 
   return (
     <div className="app-container">
+      <div>
+        <Header></Header>
+      </div>
       <AddTaskModal show={showModal} modalToggler={modalToggler}></AddTaskModal>
       <div className="gradient text-white min-h-screen flex items-center">
         <div>
