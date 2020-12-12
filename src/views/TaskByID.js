@@ -1,6 +1,6 @@
 import AddButton from "../components/AddButton";
 import TasksList from "../components/TasksList";
-import {useState, useEffect} from 'React'
+import {useState, useEffect} from 'react'
 const mockedTasks = [{
     id: 'id',
     title: 'title',
