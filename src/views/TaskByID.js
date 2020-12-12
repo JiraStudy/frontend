@@ -1,7 +1,8 @@
 import AddButton from '../components/AddButton';
 import { useState, useEffect } from 'react';
 import {
-  Link
+  Link,
+    useParams
 } from "react-router-dom";
 import Board from "../components/Board";
 const mockedTasks = [
@@ -29,6 +30,7 @@ const mockedTasks = [
 ];
 
 const TaskByID = ({ modalToggler }) => {
+  const { taskID } = useParams();
   const [parentTaskTitle, setParentTaskTitle] = useState('');
   const [tasks, setTasks] = useState([]);
   const updateTasks = newTasks => {
@@ -40,9 +42,14 @@ const TaskByID = ({ modalToggler }) => {
   }, []);
 
   useEffect(() => {
-    setTasks(mockedTasks);
+    fetch(`http://3.21.207.104:8080/tasks/${taskID}/subtasks`)
+        .then(res => res.json())
+        .then(
+            (result) => {
+              setTasks(result.data);
+            }
+        )
   }, []);
-  const getTasksByStatus = statusType => tasks.filter(task => task.status === statusType)
 
   return (
     <div
