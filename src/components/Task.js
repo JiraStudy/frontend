@@ -9,7 +9,7 @@ const Task = props => {
                 display: 'flex',
                 'justify-content': 'space-between'
             }}>
-                <Link to={`/${props.task.id}`}>
+                <Link to={`/tasks/${props.task.id}`}>
                     {props.task.title}
                 </Link>
                 <span>
