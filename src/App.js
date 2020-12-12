@@ -1,6 +1,5 @@
 import './App.css';
 import { useState, useEffect } from 'react';
-import AddTaskModal from './components/AddTaskModal';
 import EditTaskModal from './components/EditTaskModal';
 import Main from './views/Main';
 import TaskByID from './views/TaskByID';

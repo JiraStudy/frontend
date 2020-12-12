@@ -1,9 +1,9 @@
 import AddButton from '../components/AddButton';
-import TasksList from '../components/TasksList';
+import Board from "../components/Board";
 import {useEffect, useState} from "react";
 const mockedTasks = [
   {
-    id: 'id',
+    id: 1,
     title: 'title',
     deadline: '2020-02-02',
     difficulty: '1',
@@ -12,7 +12,7 @@ const mockedTasks = [
     status: 'TODO',
   },
 {
-    id: 'id1',
+    id: 2,
     title: 'title',
     deadline: '2020-02-02',
     difficulty: '2',
@@ -21,7 +21,7 @@ const mockedTasks = [
     status: 'IN_PROGRESS',
 },
 {
-    id: 'id11',
+    id: 11,
     title: 'title',
     deadline: '2020-02-02',
     difficulty: '2',
@@ -30,7 +30,7 @@ const mockedTasks = [
     status: 'DONE',
 },
 {
-    id: 'id2',
+    id: 3,
     title: 'title',
     deadline: '2020-02-02',
     difficulty: '2',
@@ -42,12 +42,14 @@ const mockedTasks = [
 
 const Main = ({modalToggler}) => {
     const [tasks, setTasks] = useState([]);
-
+    const updateTasks = newTasks => {
+        setTasks(newTasks)
+        // todo: llamar al BE
+    }
     useEffect(() => {
         setTasks(mockedTasks);
     }, []);
 
-    const getTasksByStatus = statusType => tasks.filter(task => task.status === statusType)
     return (
       <div
         style={{
@@ -75,9 +77,7 @@ const Main = ({modalToggler}) => {
             height: '600px',
           }}
         >
-            <TasksList title="To do" tasks={getTasksByStatus('TODO')} />
-            <TasksList title="In Progress" tasks={getTasksByStatus('IN_PROGRESS')} showLeftBorder showRightBorder />
-            <TasksList title="Done" tasks={getTasksByStatus('DONE')} />
+        <Board tasks={tasks} onElementDropped={updateTasks}/>
         </div>
       </div>
 )};

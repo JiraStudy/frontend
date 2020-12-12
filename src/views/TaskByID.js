@@ -1,9 +1,9 @@
 import AddButton from '../components/AddButton';
-import TasksList from '../components/TasksList';
 import { useState, useEffect } from 'react';
 import {
   Link
 } from "react-router-dom";
+import Board from "../components/Board";
 const mockedTasks = [
   {
     id: 'id',
@@ -31,7 +31,10 @@ const mockedTasks = [
 const TaskByID = ({ modalToggler }) => {
   const [parentTaskTitle, setParentTaskTitle] = useState('');
   const [tasks, setTasks] = useState([]);
-
+  const updateTasks = newTasks => {
+    setTasks(newTasks)
+    // todo: llamar al BE
+  }
   useEffect(() => {
     setParentTaskTitle('Parent Task');
   }, []);
@@ -71,9 +74,7 @@ const TaskByID = ({ modalToggler }) => {
           height: '600px',
         }}
       >
-        <TasksList title="To do" tasks={getTasksByStatus('TODO')} />
-        <TasksList title="In Progress" tasks={getTasksByStatus('IN_PROGRESS')} showLeftBorder showRightBorder />
-        <TasksList title="Done" tasks={getTasksByStatus('DONE')} />
+        <Board tasks={tasks}  onElementDropped={updateTasks}/>
       </div>
     </div>
   );
