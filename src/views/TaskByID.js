@@ -5,7 +5,7 @@ const mockedTasks = [
   {
     id: 'id',
     title: 'title',
-    difficulty: '1', // todo: mapear difficulties y status y despues hacer d&d
+    difficulty: '1',
     type: 'Exam',
     status: '1',
   },
@@ -36,6 +36,7 @@ const TaskByID = ({ modalToggler }) => {
   useEffect(() => {
     setTasks(mockedTasks);
   }, []);
+  const getTasksByStatus = statusType => tasks.filter(task => task.status === statusType)
 
   return (
     <div
@@ -62,9 +63,9 @@ const TaskByID = ({ modalToggler }) => {
           width: '1500px',
         }}
       >
-        <TasksList title="To do" tasks={tasks} />
-        <TasksList title="In Progress" tasks={tasks} showLeftBorder showRightBorder />
-        <TasksList title="Done" tasks={tasks} />
+        <TasksList title="To do" tasks={getTasksByStatus('1')} />
+        <TasksList title="In Progress" tasks={getTasksByStatus('2')} showLeftBorder showRightBorder />
+        <TasksList title="Done" tasks={getTasksByStatus('3')} />
       </div>
     </div>
   );
