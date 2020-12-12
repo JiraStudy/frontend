@@ -12,7 +12,7 @@ const Datepicker = ({ name, control }) => {
           name={name}
           control={control}
           render={({ onChange, value }) => (
-            <DatePicker selected={new Date(value)} onChange={onChange} />
+            <DatePicker selected={value ? new Date(value) : new Date()} onChange={onChange} />
           )}
         />
       </div>

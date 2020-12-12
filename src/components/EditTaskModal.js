@@ -1,20 +1,13 @@
 import TaskForm from './TaskForm';
 
-const mock = {
-  title: 'Edit Task',
-  difficulty: 1,
-  deadline: '2020-12-22T03:00:00.000Z',
-  type: 'TEST',
-};
-
-const EditTaskModal = ({ show, editTaskHandler, modalToggler, ...props }) => (
+const EditTaskModal = ({ show, editTaskHandler, modalToggler, selectedTask, ...props }) => (
   <>
     {show ? (
       <>
         <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
           <div className="relative w-auto my-6 mx-auto max-w-3xl">
             <TaskForm
-              task={mock}
+              task={selectedTask}
               submitHandler={editTaskHandler}
               modalToggler={modalToggler}
               title="Edit Task"

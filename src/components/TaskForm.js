@@ -19,8 +19,10 @@ const types = [
   { label: 'Project', value: 'PROJECT' },
 ];
 
-const TaskForm = ({ task = {}, modalToggler, submitHandler, title }) => {
-  const { register, handleSubmit, errors, control } = useForm({ defaultValues: task });
+const TaskForm = ({ task = {}, modalToggler, submitHandler, title, addMode }) => {
+  const { register, handleSubmit, errors, control } = useForm({
+    defaultValues: addMode ? '' : task,
+  });
   const onSubmit = (data) => console.log(JSON.stringify(data));
 
   return (
@@ -76,7 +78,7 @@ const TaskForm = ({ task = {}, modalToggler, submitHandler, title }) => {
             type="submit"
             style={{ transition: 'all .15s ease' }}
           >
-            Add
+            {addMode ? 'Add' : 'Edit'}
           </button>
         </div>
       </div>
