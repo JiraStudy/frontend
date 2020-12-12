@@ -47,7 +47,13 @@ const Main = ({modalToggler}) => {
         // todo: llamar al BE
     }
     useEffect(() => {
-        setTasks(mockedTasks);
+        fetch("http://3.21.207.104:8080/tasks")
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    setTasks(result.data);
+                }
+            )
     }, []);
 
     return (

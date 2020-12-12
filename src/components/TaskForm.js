@@ -14,8 +14,9 @@ const difficulties = [
 ];
 
 const types = [
-  { label: 'Test', value: 'TEST' },
-  { label: 'Task', value: 'TASK' },
+  { label: 'Exam', value: 'EXAM' },
+  { label: 'Final', value: 'FINAL' },
+  { label: 'Project', value: 'PROJECT' },
 ];
 
 const TaskForm = ({ task = {}, modalToggler, submitHandler, title }) => {
@@ -68,14 +69,14 @@ const TaskForm = ({ task = {}, modalToggler, submitHandler, title }) => {
             style={{ transition: 'all .15s ease' }}
             onClick={modalToggler}
           >
-            Cerrar
+            Close
           </button>
           <button
             className="bg-green-500 text-white active:bg-green-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
             type="submit"
             style={{ transition: 'all .15s ease' }}
           >
-            Agregar
+            Add
           </button>
         </div>
       </div>
