@@ -43,7 +43,13 @@ const TaskByID = ({ modalToggler }) => {
     setTasks(newTasks)
   }
   useEffect(() => {
-    setParentTaskTitle('Parent Task');
+    fetch(`http://3.21.207.104:8080/tasks/${taskID}`)
+        .then(res => res.json())
+        .then(
+            (result) => {
+              setParentTaskTitle(result.data.title);
+            }
+        )
   }, []);
 
   useEffect(() => {
