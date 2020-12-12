@@ -9,6 +9,7 @@ import {
     Route,
 } from "react-router-dom";
 import Header from './components/Header'
+import 'react-datepicker/dist/react-datepicker.css';
 
 import './App.css';
 import "react-datepicker/dist/react-datepicker.css";
@@ -38,7 +39,6 @@ const App = () => {
             </div>
       </Router>
   );
-}
+};
 
 export default App;
-
