@@ -47,7 +47,7 @@ const TaskByID = ({ modalToggler }) => {
         .then(res => res.json())
         .then(
             (result) => {
-              setParentTaskTitle(result.data.title);
+              setParentTaskTitle(result.title);
             }
         )
   }, []);

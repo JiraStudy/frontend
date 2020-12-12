@@ -29,7 +29,7 @@ const Task = (props) => {
                 'justify-content': 'space-between',
               }}
             >
-              {props.task.subtasksCount && (
+              {props.task.subTasksCount && (
                 <Link
                   to={`/tasks/${props.task.id}`}
                   style={{
@@ -39,7 +39,7 @@ const Task = (props) => {
                   {props.task.title}
                 </Link>
               )}
-              {!props.task.subtasksCount && <span>{props.task.title}</span>}
+              {!props.task.subTasksCount && <span>{props.task.title}</span>}
               <span>{props.task.type}</span>
             </div>
 
@@ -51,8 +51,8 @@ const Task = (props) => {
             >
               <span>{difficulties[props.task.difficulty]}</span>
               {props.task.deadline && <span>{props.task.deadline}</span>}
-              {props.task.subtasksCount && (
-                <span>Number of subtasks: {props.task.subtasksCount}</span>
+              {props.task.subTasksCount && (
+                <span>Number of subtasks: {props.task.subTasksCount}</span>
               )}
               <div className="flex justify-end">
                 <button
