@@ -2,6 +2,12 @@ import {
     Link
 } from "react-router-dom";
 
+const difficulties = {
+    '1': 'Easy',
+    '2': 'Medium',
+    '3': 'Hard',
+}
+
 const Task = props => {
     return (
         <>
@@ -9,9 +15,18 @@ const Task = props => {
                 display: 'flex',
                 'justify-content': 'space-between'
             }}>
-                <Link to={`/tasks/${props.task.id}`}>
-                    {props.task.title}
-                </Link>
+                {props.task.subtasksCount &&
+                    <Link to={`/tasks/${props.task.id}`} style={{
+                        'font-size': '18px'
+                    }}>
+                        {props.task.title}
+                    </Link>
+                }
+                {!props.task.subtasksCount &&
+                    <span>
+                        {props.task.title}
+                    </span>
+                }
                 <span>
                     {props.task.type}
                 </span>
@@ -21,7 +36,7 @@ const Task = props => {
                 display: 'flex',
                 'flex-direction': 'column'
             }}>
-                <span>{props.task.difficulty}</span>
+                <span>{difficulties[props.task.difficulty]}</span>
                 {props.task.deadline && <span>{props.task.deadline}</span>}
                 {props.task.subtasksCount && <span>Number of subtasks: {props.task.subtasksCount}</span>}
             </div>

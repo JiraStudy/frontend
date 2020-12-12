@@ -1,27 +1,30 @@
 import AddButton from '../components/AddButton';
 import TasksList from '../components/TasksList';
 import { useState, useEffect } from 'react';
+import {
+  Link
+} from "react-router-dom";
 const mockedTasks = [
   {
     id: 'id',
     title: 'title',
-    difficulty: '1', // todo: mapear difficulties y status y despues hacer d&d
+    difficulty: '1',
     type: 'Exam',
-    status: '1',
+    status: 'TODO',
   },
   {
     id: 'id1',
     title: 'title1',
-    difficulty: 'Easy',
+    difficulty: '3',
     type: 'Exam',
-    status: '2',
+    status: 'IN_PROGRESS',
   },
   {
     id: 'id2',
     title: 'title2',
-    difficulty: 'Easy',
+    difficulty: '3',
     type: 'Exam',
-    status: '3',
+    status: 'DONE',
   },
 ];
 
@@ -36,6 +39,7 @@ const TaskByID = ({ modalToggler }) => {
   useEffect(() => {
     setTasks(mockedTasks);
   }, []);
+  const getTasksByStatus = statusType => tasks.filter(task => task.status === statusType)
 
   return (
     <div
@@ -47,13 +51,14 @@ const TaskByID = ({ modalToggler }) => {
       }}
     >
       <AddButton onClick={modalToggler} text="Create a Subtask" />
-      <span
+      <Link
+        to='/tasks'
         style={{
           'font-size': '25px',
         }}
       >
         {parentTaskTitle}
-      </span>
+      </Link>
       <div
         style={{
           display: 'flex',
@@ -62,9 +67,9 @@ const TaskByID = ({ modalToggler }) => {
           width: '1500px',
         }}
       >
-        <TasksList title="To do" tasks={tasks} />
-        <TasksList title="In Progress" tasks={tasks} showLeftBorder showRightBorder />
-        <TasksList title="Done" tasks={tasks} />
+        <TasksList title="To do" tasks={getTasksByStatus('TODO')} />
+        <TasksList title="In Progress" tasks={getTasksByStatus('IN_PROGRESS')} showLeftBorder showRightBorder />
+        <TasksList title="Done" tasks={getTasksByStatus('DONE')} />
       </div>
     </div>
   );
