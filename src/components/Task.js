@@ -8,6 +8,7 @@ const difficulties = {
 };
 
 const Task = (props) => {
+  debugger
   return (
     <Draggable draggableId={`${props.task.id}`} index={props.task.id}>
       {(provided, snapshot) => (
@@ -29,7 +30,7 @@ const Task = (props) => {
                 'justify-content': 'space-between',
               }}
             >
-              {props.task.subTasksCount && (
+              {props.task.subTasksCount === '0' &&
                 <Link
                   to={`/tasks/${props.task.id}`}
                   style={{
@@ -38,7 +39,7 @@ const Task = (props) => {
                 >
                   {props.task.title}
                 </Link>
-              )}
+              }
               {!props.task.subTasksCount && <span>{props.task.title}</span>}
               <span>{props.task.type}</span>
             </div>
@@ -51,7 +52,7 @@ const Task = (props) => {
             >
               <span>{difficulties[props.task.difficulty]}</span>
               {props.task.deadline && <span>{props.task.deadline}</span>}
-              {props.task.subTasksCount && (
+              {props.task.subTasksCount === '0' && (
                 <span>Number of subtasks: {props.task.subTasksCount}</span>
               )}
               <div className="flex justify-end">
