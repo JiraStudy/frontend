@@ -42,7 +42,7 @@ const TasksList = (props) => {
               >
                 <Task
                   task={task}
-                  setSelectedTaskHandler={props.setSelectedTaskHandler}
+                  showEditModalHandler={props.showEditModalHandler}
                   showDeleteModalHandler={props.showDeleteModalHandler}
                 />
               </div>

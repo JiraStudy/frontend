@@ -63,7 +63,7 @@ const Task = (props) => {
                 </button>
                 <button
                   className="rounder border-2 bg-blue-300 border-blue-300 "
-                  onClick={() => props.setSelectedTaskHandler(props.task)}
+                  onClick={() => props.showEditModalHandler(props.task)}
                 >
                   edit
                 </button>

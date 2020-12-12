@@ -40,7 +40,12 @@ const mockedTasks = [
   },
 ];
 
-const Main = ({ modalToggler }) => {
+const Main = ({
+  modalToggler,
+  showEditModalHandler,
+  showAddModalHandler,
+  showDeleteModalHandler,
+}) => {
   const [tasks, setTasks] = useState(mockedTasks);
   const updateTasks = (newTasks) => {
     setTasks(newTasks);
@@ -63,7 +68,7 @@ const Main = ({ modalToggler }) => {
         padding: '20px',
       }}
     >
-      <AddButton onClick={modalToggler} text="Create a Task" />
+      <AddButton onClick={showAddModalHandler} text="Create a Task" />
       <span
         style={{
           'font-size': '25px',
@@ -78,7 +83,13 @@ const Main = ({ modalToggler }) => {
           height: '600px',
         }}
       >
-        <Board tasks={tasks} onElementDropped={updateTasks} />
+        <Board
+          tasks={tasks}
+          onElementDropped={updateTasks}
+          showEditModalHandler={showEditModalHandler}
+          showAddModalHandler={showAddModalHandler}
+          showDeleteModalHandler={showDeleteModalHandler}
+        />
       </div>
     </div>
   );

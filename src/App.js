@@ -54,7 +54,7 @@ const App = () => {
     setshowDeleteModal(false);
   };
 
-  const setSelectedTaskHandler = (id) => {
+  const showEditModalHandler = (id) => {
     setSelectedTask(id);
     setshowEditModal(true);
   };
@@ -78,7 +78,7 @@ const App = () => {
         <div>
           <Header></Header>
         </div>
-        <AddTaskModal show={showAddModal} modalToggler={modalToggler} selectedTask={selectedTask} />
+        <AddTaskModal show={showAddModal} modalToggler={modalToggler} />
         <EditTaskModal
           show={showEditModal}
           modalToggler={modalToggler}
@@ -97,7 +97,7 @@ const App = () => {
             <Route path="/tasks">
               <Main
                 modalToggler={modalToggler}
-                setSelectedTaskHandler={setSelectedTaskHandler}
+                showEditModalHandler={showEditModalHandler}
                 showAddModalHandler={showAddModalHandler}
                 showDeleteModalHandler={showDeleteModalHandler}
               />
