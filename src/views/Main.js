@@ -43,7 +43,7 @@ const mockedTasks = [
 const Main = ({
     showEditModalHandler,
     showAddModalHandler,
-    showDeleteModalHandler,}) => {
+    showDeleteModalHandler}) => {
     const [tasks, setTasks] = useState([]);
     const updateTasks = (newTasks, changedIdx) => {
         const requestOptions = {
