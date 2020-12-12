@@ -1,9 +1,14 @@
 import Task from './Task'
 
 const TasksList = props => {
+    const borderStyles = {
+        'border-left': props.showLeftBorder ? '3px solid #44A9FB' : null,
+        'border-right': props.showRightBorder ? '3px solid #44A9FB' : null,
+    }
     return (
         <div style={{
-            width: '500px'
+            width: '500px',
+            ...borderStyles
         }}>
             <div style={{
                 'border-bottom': '3px solid #44A9FB',

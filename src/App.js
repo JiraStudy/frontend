@@ -30,12 +30,19 @@ const App = () => {
       </div>
       <AddTaskModal show={showModal} modalToggler={modalToggler}></AddTaskModal>
       <div className="gradient text-white min-h-screen flex items-center">
-        <div>
+        <div style={{
+            display: 'flex',
+            'flex-direction': 'column',
+            width: '100%'
+        }}>
             <AddButton
                 onClick={() => {window.alert('hola')}}
             />
             <div style={{
-                display: 'flex'
+                display: 'flex',
+                border: '3px solid #44A9FB',
+                height: '600px',
+                width: '1500px'
             }}>
                 <TasksList
                     title='To do'
@@ -44,6 +51,8 @@ const App = () => {
                 <TasksList
                     title='In Progress'
                     tasks={tasks}
+                    showLeftBorder
+                    showRightBorder
                 />
                 <TasksList
                     title='Done'
