@@ -41,23 +41,28 @@ const mockedTasks = [
 ];
 
 const Main = ({
-  modalToggler,
-  showEditModalHandler,
-  showAddModalHandler,
-  showDeleteModalHandler,
-}) => {
-  const [tasks, setTasks] = useState(mockedTasks);
-  const updateTasks = (newTasks) => {
-    setTasks(newTasks);
-    // todo: llamar al BE
-  };
-  useEffect(() => {
-    fetch('http://3.21.207.104:8080/tasks%22')
-      .then((res) => res.json())
-      .then((result) => {
-        setTasks(result.data);
-      });
-  }, []);
+    showEditModalHandler,
+    showAddModalHandler,
+    showDeleteModalHandler,}) => {
+    const [tasks, setTasks] = useState([]);
+    const updateTasks = (newTasks, changedIdx) => {
+        const requestOptions = {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(newTasks[changedIdx])
+        }
+        fetch(`http://3.21.207.104:8080/tasks/${newTasks[changedIdx].id}`, requestOptions)
+        setTasks(newTasks)
+    }
+    useEffect(() => {
+        fetch("http://3.21.207.104:8080/tasks")
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    setTasks(result.data);
+                }
+            )
+    }, []);
 
   return (
     <div

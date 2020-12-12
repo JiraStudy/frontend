@@ -33,9 +33,14 @@ const TaskByID = ({ modalToggler }) => {
   const { taskID } = useParams();
   const [parentTaskTitle, setParentTaskTitle] = useState('');
   const [tasks, setTasks] = useState([]);
-  const updateTasks = newTasks => {
+  const updateTasks = (newTasks, changedIdx) => {
+    const requestOptions = {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newTasks[changedIdx])
+    };
+    fetch(`http://3.21.207.104:8080/tasks/${taskID}/subtasks/${newTasks[changedIdx].id}`, requestOptions)
     setTasks(newTasks)
-    // todo: llamar al BE
   }
   useEffect(() => {
     setParentTaskTitle('Parent Task');
