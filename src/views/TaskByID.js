@@ -51,20 +51,24 @@ const TaskByID = ({ modalToggler }) => {
       }}
     >
       <AddButton onClick={modalToggler} text="Create a Subtask" />
-      <Link
-        to='/tasks'
-        style={{
+      <div>
+        <span style={{
           'font-size': '25px',
-        }}
-      >
-        {parentTaskTitle}
-      </Link>
+          marginRight: '20px'
+          }}>
+          {parentTaskTitle}
+        </span>
+        <Link
+          to='/tasks'
+        >
+          Back
+        </Link>
+      </div>
       <div
         style={{
           display: 'flex',
           border: '3px solid #44A9FB',
           height: '600px',
-          width: '1500px',
         }}
       >
         <TasksList title="To do" tasks={getTasksByStatus('TODO')} />

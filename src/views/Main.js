@@ -12,7 +12,7 @@ const mockedTasks = [
     status: 'TODO',
   },
 {
-    id: 'id',
+    id: 'id1',
     title: 'title',
     deadline: '2020-02-02',
     difficulty: '2',
@@ -21,7 +21,7 @@ const mockedTasks = [
     status: 'IN_PROGRESS',
 },
 {
-    id: 'id',
+    id: 'id11',
     title: 'title',
     deadline: '2020-02-02',
     difficulty: '2',
@@ -30,7 +30,7 @@ const mockedTasks = [
     status: 'DONE',
 },
 {
-    id: 'id',
+    id: 'id2',
     title: 'title',
     deadline: '2020-02-02',
     difficulty: '2',
@@ -73,7 +73,6 @@ const Main = ({modalToggler}) => {
             display: 'flex',
             border: '3px solid #44A9FB',
             height: '600px',
-            width: '1500px',
           }}
         >
             <TasksList title="To do" tasks={getTasksByStatus('TODO')} />

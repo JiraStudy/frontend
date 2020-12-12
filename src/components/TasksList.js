@@ -7,7 +7,7 @@ const TasksList = props => {
     }
     return (
         <div style={{
-            width: '500px',
+            width: '33%',
             ...borderStyles
         }}>
             <div style={{
