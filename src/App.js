@@ -7,7 +7,8 @@ import AddTaskModal from './components/AddTaskModal';
 import './App.css';
 import "react-datepicker/dist/react-datepicker.css";
 
-function App() {
+export default App;
+
   const tasks = [{
       id: 'id',
       title: 'title',
@@ -50,6 +51,5 @@ const App = () => {
       </div>
     </div>
   );
-};
+}
 
-export default App;
